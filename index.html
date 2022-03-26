@@ -6,11 +6,26 @@
     </style>
     <body style="background-color:powderblue;">
         <script>
+            let mone = 0
+            let boss = false
             function getClicc() {
-                window.location = "./lol.html"
+                mone += 1
+                if(mone >= 100 && boss == false) {
+                    boss = true
+                    var audio = new Audio('./boss.mp3');
+audio.play();
+                    document.getElementById("amongtext").innerHTML = "Prepare for your doom...."
+                    document.body.style.backgroundColor = "red";
+                    setTimeout(() => {
+                        document.getElementById("amongtext").innerHTML = "Boss health = 100"
+                    }, 2000);
+                } else if(mone <= 100 && boss == false) {
+                    document.getElementById("amongtext").innerHTML = "Clicks: "+mone
+                }
             }
         </script>
         <p id="among">Clicc game</p>
-        <button onclick="getClicc()">click here for real robus!!%&/!</button>
+        <p1 id="amongtext">Clicks: 0</p1>
+        <button onclick="getClicc()">Click</button>
     </body>
 </html>
